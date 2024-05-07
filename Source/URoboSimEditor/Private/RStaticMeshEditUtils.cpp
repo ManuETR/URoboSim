@@ -3,7 +3,7 @@
 
 // necessary for Collision creation
 // #include "Private/ConvexDecompTool.h"
-#include "Editor/UnrealEd/Private/ConvexDecompTool.h"
+#include "ConvexDecompTool.h"
 // necessary for Collision creation KDOP
 
 #include "Runtime/Engine/Classes/PhysicsEngine/BodySetup.h"
@@ -102,11 +102,11 @@ void RStaticMeshUtils::CreateComplexCollision(UStaticMesh* OutMesh, uint32 InHul
 		FStaticMeshLODResources& LODModel = OutMesh->GetRenderData()->LODResources[0];
 
 		int32 NumVerts = LODModel.VertexBuffers.StaticMeshVertexBuffer.GetNumVertices();
-		TArray<FVector> Verts;
+		TArray<FVector3f> Verts;
 
 		for(int32 i=0; i<NumVerts; i++)
 		{
-			FVector Vert = LODModel.VertexBuffers.PositionVertexBuffer.VertexPosition(i);
+            FVector3f Vert = LODModel.VertexBuffers.PositionVertexBuffer.VertexPosition(i);
 			Verts.Add(Vert);
 		}
 

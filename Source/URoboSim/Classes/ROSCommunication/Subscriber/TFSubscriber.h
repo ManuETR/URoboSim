@@ -2,9 +2,8 @@
 
 #include "Controller/RController.h"
 #include "RSubscriber.h"
-// clang-format off
+#include "Controller/ControllerType/SpecialController/RTFController.h"
 #include "TFSubscriber.generated.h"
-// clang-format on
 
 UCLASS()
 class UROBOSIM_API URTFSubscriberParameter : public URSubscriberParameter

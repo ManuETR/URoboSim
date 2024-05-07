@@ -40,7 +40,8 @@ public class URoboSimEditor : ModuleRules
                                 "URoboSim",
                                 "URoboVision",
                                 "UnrealEd",
-			}
+                                "PhysicsUtilities"
+            }
 			);
 
 		DynamicallyLoadedModuleNames.AddRange(

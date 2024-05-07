@@ -23,7 +23,7 @@ public class URoboSim : ModuleRules
                             "UWorldControl",
                             "UROSControl",
 							"XmlParser",
-						}
+                        }
 			);
 
 
@@ -37,8 +37,8 @@ public class URoboSim : ModuleRules
 				"UROSBridge",
 				"XmlParser",
 				"UTFPublisher",
-				"UCheckpointSystem",
-			}
+				"UCheckpointSystem"
+            }
 			);
 
 
