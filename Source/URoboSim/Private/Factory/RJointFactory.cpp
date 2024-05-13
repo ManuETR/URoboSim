@@ -63,6 +63,7 @@ URJoint* URJointBuilder::NewJoint()
     {
       UE_LOG(LogTemp, Error, TEXT("Constraint for %s not created"), *JointDescription->Name);
     }
+  UE_LOG(LogTemp, Display, TEXT("JointFactory: New Joint %s"), *JointDescription->Name);
   return Joint;
 }
 void URJointBuilder::SetJointParameters()

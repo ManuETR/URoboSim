@@ -69,6 +69,7 @@ URLink* URLinkBuilder::NewLink()
   Link = NewObject<URLink>(Model, FName((LinkDescription->Name).GetCharArray().GetData()));
   SetPose(LinkDescription->Pose);
 
+  UE_LOG(LogTemp, Display, TEXT("LinkFactory: New Link %s"), *LinkDescription->Name);
   // Add the Collision Components to the Link
   SetCollisions();
 

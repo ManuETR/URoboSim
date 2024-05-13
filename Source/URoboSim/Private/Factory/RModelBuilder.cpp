@@ -71,14 +71,16 @@ void URModelBuilder::BuildKinematicTree()
 {
   for(auto& Joint : Model->Joints)
     {
-      URLink* Parent = *Model->Links.Find(Joint.Value->ParentName);
+      UE_LOG(LogTemp, Display, TEXT("Trying to join links %s and %s via joint %s"), *Joint.Value->ParentName, *Joint.Value->ChildName, *Joint.Value->GetName());
       URLink* Child = *Model->Links.Find(Joint.Value->ChildName);
-      if(!Parent)
+      UE_LOG(LogTemp, Display, TEXT("Link found: %s"), *Child->GetName());
+      URLink* Parent = *Model->Links.Find(Joint.Value->ParentName);
+      if(Parent == nullptr)
         {
           UE_LOG(LogTemp, Error, TEXT("Parent %s not found"), *Joint.Value->ParentName);
           continue;
         }
-      if(!Child)
+      if(Child == nullptr)
         {
           UE_LOG(LogTemp, Error, TEXT("Child %s not found"), *Joint.Value->ChildName);
           continue;
@@ -87,7 +89,6 @@ void URModelBuilder::BuildKinematicTree()
       Joint.Value->SetParentChild(Parent, Child);
       SetConstraintPosition(Joint.Value);
       Joint.Value->Constraint->ConnectToComponents();
-
       if(!Child->bAttachedToParent)
         {
           Child->GetCollision()->AttachToComponent(Joint.Value->Parent->GetCollision(), FAttachmentTransformRules::KeepWorldTransform);
